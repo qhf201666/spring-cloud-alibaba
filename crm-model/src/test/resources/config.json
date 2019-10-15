@@ -1,39 +1,37 @@
 {
-    "dataSource": {
-        "driverName": "com.mysql.cj.jdbc.Driver",
-        "url": "jdbc:mysql://47.92.66.41:3306/logistics?useUnicode=true&serverTimezone=UTC&characterEncoding=utf8",
-        "username": "root",
-        "password": "123456"
-    },
-    "strategy": {
-        "naming": "underline_to_camel",
-        "skipView": true,
-        "isCapitalMode": true,
-        "entityColumnConstant": true,
-        "entityBuilderModel": true,
-        "entityLombokModel": true,
-        "tablePrefix": [
-            "logis_"
-        ],
-        "include": [
-            "logis_.*"
-        ]
-    },
-    "packageInfo": {
-        "parent": "com.dywl.logistics.order",
-        "service": "service",
-        "serviceImpl": "service.impl",
-        "entity": "entity",
-        "mapper": "mapper",
-        "xml": "mapper.xml"
-    },
-    "globalConfig": {
-        "author": "annoymous",
-        "outputDir": "src/main/java",
-        "fileOverride": true,
-        "enableCache": false,
-        "activeRecord": false,
-        "baseResultMap": true,
-        "dataType": "ONLY_DATE"
-    }
+  "dataSource": {
+    "driverName": "com.mysql.cj.jdbc.Driver",
+    "url": "jdbc:mysql://47.92.66.41:3306/logistics?useUnicode=true&serverTimezone=UTC&characterEncoding=utf8",
+    "username": "root",
+    "password": "123456"
+  },
+  "strategy": {
+    "naming": "underline_to_camel",
+    "skipView": true,
+    "isCapitalMode": true,
+    "entityColumnConstant": true,
+    "entityBuilderModel": true,
+    "entityLombokModel": true,
+    "tablePrefix": ["logis_"],
+    "include": ["logis_.*"]
+  },
+
+  "packageInfo": {
+    "parent": "com.dywl.logistics.order",
+    "service": "service",
+    "serviceImpl": "service.impl",
+    "entity": "entity",
+    "mapper": "mapper",
+    "xml": "mapper.xml"
+  },
+
+  "globalConfig": {
+    "author": "annoymous",
+    "outputDir": "src/main/java",
+    "fileOverride": true,
+    "enableCache": false,
+    "activeRecord": false,
+    "baseResultMap": true,
+    "dataType": "ONLY_DATE"
+  }
 }

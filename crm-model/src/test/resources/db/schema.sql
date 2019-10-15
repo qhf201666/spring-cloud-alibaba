@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS `logis_order`;
+
+CREATE TABLE `logis_order`
+(
+    `id`       INT UNSIGNED AUTO_INCREMENT COMMENT '主键ID',
+    `order_no`    VARCHAR(30)  NOT NULL COMMENT '运单号',
+    `load_addr`   VARCHAR(40)  NOT NULL COMMENT '装货地址',
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
+
+CHANGE COLUMN `id` `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键ID' ;
+
+
+
+

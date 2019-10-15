@@ -22,6 +22,6 @@ public class ServiceApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        log.info("sys service started!");
+        log.info("crm service started!");
     }
 }
