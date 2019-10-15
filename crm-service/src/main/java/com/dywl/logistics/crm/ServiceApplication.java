@@ -7,19 +7,21 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
- * @author qhf
+ * 系统启动类
+ *
+ * @author 陈世峰
  */
 @Slf4j
 @EnableTransactionManagement
 @SpringBootApplication
 public class ServiceApplication implements CommandLineRunner {
 
-  public static void main(String[] args) {
-    SpringApplication.run(ServiceApplication.class);
-  }
+    public static void main(String[] args) {
+        SpringApplication.run(ServiceApplication.class);
+    }
 
-  @Override
-  public void run(String... args) {
-    log.info("order service started!");
-  }
+    @Override
+    public void run(String... args) {
+        log.info("crm service started!");
+    }
 }

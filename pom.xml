@@ -1,81 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns="http://maven.apache.org/POM/4.0.0"
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.dywl</groupId>
-    <artifactId>logistics-crm</artifactId>
+    <artifactId>logistics-sys</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <modules>
-        <module>crm-model</module>
-        <module>crm-service</module>
-        <module>crm-interfaces</module>
-    </modules>
     <packaging>pom</packaging>
 
+    <modules>
+        <module>crm-interfaces</module>
+        <module>crm-service</module>
+        <module>crm-model</module>
+    </modules>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>11</java.version>
         <maven.compiler.release>${java.version}</maven.compiler.release>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <version.dywl-dependencies>0.0.1-SNAPSHOT</version.dywl-dependencies>
-        <version.dywl-commons>0.0.1-SNAPSHOT</version.dywl-commons>
         <version.casclient.starter>1.0.0-RELEASE</version.casclient.starter>
+        <version.dywl-commons>0.0.1-SNAPSHOT</version.dywl-commons>
+        <version.dywl-dependencies>0.0.1-SNAPSHOT</version.dywl-dependencies>
         <version.mybatis-plus>3.2.0</version.mybatis-plus>
     </properties>
 
-
     <dependencyManagement>
         <dependencies>
-
             <dependency>
-                <groupId>com.dywl</groupId>
                 <artifactId>dywl-dependencies</artifactId>
-                <version>${version.dywl-dependencies}</version>
+                <groupId>com.dywl</groupId>
                 <scope>import</scope>
                 <type>pom</type>
+                <version>${version.dywl-dependencies}</version>
             </dependency>
             <dependency>
-                <groupId>com.dywl</groupId>
                 <artifactId>common-dependencies</artifactId>
-                <version>${version.dywl-commons}</version>
+                <groupId>com.dywl</groupId>
                 <scope>import</scope>
                 <type>pom</type>
+                <version>${version.dywl-commons}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.github.cas</groupId>
                 <artifactId>casclient-spring-boot-starter</artifactId>
+                <groupId>com.github.cas</groupId>
                 <version>${version.casclient.starter}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter</artifactId>
-                <version>2.1.7.RELEASE</version>
+                <groupId>org.springframework.boot</groupId>
                 <scope>provided</scope>
+                <version>2.1.7.RELEASE</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
     <dependencies>
         <dependency>
-            <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <groupId>org.projectlombok</groupId>
         </dependency>
     </dependencies>
-
 
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
                 <configuration>
                     <compilerArgs>
                         <arg>
@@ -84,28 +80,28 @@
                     </compilerArgs>
                     <encoding>UTF-8</encoding>
                 </configuration>
+                <groupId>org.apache.maven.plugins</groupId>
+                <version>3.8.0</version>
             </plugin>
             <plugin>
                 <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.0</version>
                 <configuration>
                     <skip>true</skip>
                 </configuration>
+                <groupId>org.apache.maven.plugins</groupId>
+                <version>2.22.0</version>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
-                <version>2.3</version>
                 <configuration>
                     <generateBackupPoms>false</generateBackupPoms>
                 </configuration>
+                <groupId>org.codehaus.mojo</groupId>
+                <version>2.3</version>
             </plugin>
         </plugins>
     </build>
-
-
     <distributionManagement>
         <repository>
             <id>nexus-release</id>
@@ -118,4 +114,5 @@
             <url>http://nexus.da156.cn:8081/repository/maven-snapshots</url>
         </snapshotRepository>
     </distributionManagement>
+
 </project>

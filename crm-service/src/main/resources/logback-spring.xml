@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender class="ch.qos.logback.core.ConsoleAppender" name="STDOUT">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread]
+                %yellow(%X{X-B3-TraceId}),%green(%X{X-B3-SpanId}),%blue(%X{X-B3-ParentSpanId})
+                %-5level %logger{50} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+    <appender class="ch.qos.logback.core.rolling.RollingFileAppender" name="FILE">
+
+        <!-- 日志日常打印文件 -->
+        <encoder>
+            <charset>UTF-8</charset>
+            <!-- 此处设置字符集 -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}
+                %yellow(%X{X-B3-TraceId}),%green(%X{X-B3-SpanId}),%blue(%X{X-B3-ParentSpanId})
+                %-5level %logger{50} - %msg%n
+            </pattern>
+        </encoder>
+        <!--<file>/var/log/2018-05-15/inspos-dm-ppcp2/mylog.log</file>-->
+        <file>${LOG_HOME}/${artifactId}.log</file>
+
+        <!--<filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
+        <!--<level>DEBUG</level>-->
+        <!--</filter>-->
+
+        <prudent>false</prudent>
+
+        <!-- Safely log to the same file from multiple JVMs. Degrades performance! -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HOME}/%d{yyyy-MM-dd}/${artifactId}/${artifactId}.%i.log.gz
+            </fileNamePattern>
+            <!-- 如果按天来回滚，则最大保存时间为365天，365天之前的都将被清理掉 -->
+            <maxHistory>365</maxHistory>
+            <!-- 日志总保存量为10GB -->
+            <timeBasedFileNamingAndTriggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!--文件达到 最大1MB时会被压缩和切割 -->
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <totalSizeCap>300GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <property name="LOG_HOME" value="./log"/>
+
+    <root>
+        <appender-ref ref="FILE"/>
+    </root>
+
+    <springProfile name="stable">
+        <logger additivity="false" level="DEBUG" name="com.dywl.logistics.crm">
+            <appender-ref ref="FILE"/>
+        </logger>
+    </springProfile>
+
+    <springProfile name="prod">
+        <logger additivity="false" level="INFO" name="com.dywl.logistics.crm">
+            <appender-ref ref="FILE"/>
+        </logger>
+    </springProfile>
+
+    <springProfile name="dev">
+        <logger additivity="false" level="DEBUG" name="com.dywl.logistics.crm">
+            <appender-ref ref="STDOUT"/>
+            <appender-ref ref="FILE"/>
+        </logger>
+    </springProfile>
+</configuration>
