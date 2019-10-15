@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>logistics-order</artifactId>
+        <groupId>com.dywl</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <artifactId>crm-model</artifactId>
+
+    <dependencies>
+        <dependency>
+            <artifactId>lombok</artifactId>
+            <groupId>org.projectlombok</groupId>
+        </dependency>
+        <dependency>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+            <groupId>org.springframework.boot</groupId>
+        </dependency>
+        <dependency>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>org.springframework.boot</groupId>
+        </dependency>
+        <dependency>
+            <artifactId>mybatis-plus-generator</artifactId>
+            <groupId>com.baomidou</groupId>
+        </dependency>
+        <dependency>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <groupId>com.baomidou</groupId>
+        </dependency>
+        <dependency>
+            <artifactId>mysql-connector-java</artifactId>
+            <groupId>mysql</groupId>
+        </dependency>
+        <dependency>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+            <groupId>org.springframework.boot</groupId>
+        </dependency>
+
+        <dependency>
+            <artifactId>velocity-engine-core</artifactId>
+            <groupId>org.apache.velocity</groupId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <artifactId>freemarker</artifactId>
+            <groupId>org.freemarker</groupId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <artifactId>beetl</artifactId>
+            <groupId>com.ibeetl</groupId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>mybatisplus-generator-maven-plugin</artifactId>
+                <configuration>
+                    <generateFile>${basedir}/src/test/resources/config.json</generateFile>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <groupId>mysql</groupId>
+                        <version>8.0.17</version>
+                    </dependency>
+                    <dependency>
+                        <artifactId>beetl</artifactId>
+                        <groupId>com.ibeetl</groupId>
+                        <version>2.8.2</version>
+                    </dependency>
+                </dependencies>
+                <groupId>com.dywl</groupId>
+                <version>0.0.1-SNAPSHOT</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>

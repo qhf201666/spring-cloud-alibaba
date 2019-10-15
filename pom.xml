@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.dywl</groupId>
+    <artifactId>logistics-sys</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>crm-interfaces</module>
+        <module>crm-service</module>
+        <module>crm-model</module>
+    </modules>
+
+    <properties>
+        <java.version>11</java.version>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <version.casclient.starter>1.0.0-RELEASE</version.casclient.starter>
+        <version.dywl-commons>0.0.1-SNAPSHOT</version.dywl-commons>
+        <version.dywl-dependencies>0.0.1-SNAPSHOT</version.dywl-dependencies>
+        <version.mybatis-plus>3.2.0</version.mybatis-plus>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <artifactId>dywl-dependencies</artifactId>
+                <groupId>com.dywl</groupId>
+                <scope>import</scope>
+                <type>pom</type>
+                <version>${version.dywl-dependencies}</version>
+            </dependency>
+            <dependency>
+                <artifactId>common-dependencies</artifactId>
+                <groupId>com.dywl</groupId>
+                <scope>import</scope>
+                <type>pom</type>
+                <version>${version.dywl-commons}</version>
+            </dependency>
+
+            <dependency>
+                <artifactId>casclient-spring-boot-starter</artifactId>
+                <groupId>com.github.cas</groupId>
+                <version>${version.casclient.starter}</version>
+            </dependency>
+
+            <dependency>
+                <artifactId>spring-boot-starter</artifactId>
+                <groupId>org.springframework.boot</groupId>
+                <scope>provided</scope>
+                <version>2.1.7.RELEASE</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <artifactId>lombok</artifactId>
+            <groupId>org.projectlombok</groupId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <compilerArgs>
+                        <arg>
+                            -Xlint:all
+                        </arg>
+                    </compilerArgs>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+                <groupId>org.apache.maven.plugins</groupId>
+                <version>3.8.0</version>
+            </plugin>
+            <plugin>
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+                <groupId>org.apache.maven.plugins</groupId>
+                <version>2.22.0</version>
+            </plugin>
+            <plugin>
+                <artifactId>versions-maven-plugin</artifactId>
+                <configuration>
+                    <generateBackupPoms>false</generateBackupPoms>
+                </configuration>
+                <groupId>org.codehaus.mojo</groupId>
+                <version>2.3</version>
+            </plugin>
+        </plugins>
+    </build>
+    <distributionManagement>
+        <repository>
+            <id>nexus-release</id>
+            <name>Releases</name>
+            <url>http://nexus.da156.cn:8081/repository/maven-releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus-snapshot</id>
+            <name>Snapshot</name>
+            <url>http://nexus.da156.cn:8081/repository/maven-snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+</project>

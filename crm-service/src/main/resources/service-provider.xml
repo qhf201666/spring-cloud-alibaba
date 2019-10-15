@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.springframework.org/schema/beans"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="plat-permission-provider"/>
+    <!-- zookeeper -->
+    <dubbo:provider filter="tracing" group="${dubbo.provider.group}"
+        port="${dubbo.provider.port}" timeout="${dubbo.provider.timeout}"/>
+
+    <dubbo:registry address="${dubbo.registry.address}" protocol="${dubbo.registry.protocol}"
+        version="${dubbo.provider.version}"/>
+
+</beans>
