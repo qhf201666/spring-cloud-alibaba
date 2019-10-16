@@ -11,7 +11,7 @@ import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 import java.io.File;
 import java.nio.file.Paths;
 
-public class CrmCodeGenerator {
+public class CrmShipperCodeGenerator {
 
 
   //输出文件目录

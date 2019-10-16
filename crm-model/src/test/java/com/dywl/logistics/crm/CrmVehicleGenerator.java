@@ -16,7 +16,7 @@ import java.nio.file.Paths;
  * @version 1.0
  * @since 2019-10-15
  **/
-public class CrmGeneratorRXL {
+public class CrmVehicleGenerator {
 
   //输出文件目录
   private static String outputDir = System.getProperty("user.dir") + "/crm-model/src/main/java";
@@ -37,7 +37,9 @@ public class CrmGeneratorRXL {
   //包名
   private static String modal = "vehicle";
   //要生成的表名 数组
-  private static String[] tableNames = {"crm_vehicle_doc","crm_vehicle",
+  private static String[] tableNames = {
+      "crm_vehicle_doc",
+      "crm_vehicle",
       "crm_vehicle_log"
   };
   //生成实体去掉表前缀
