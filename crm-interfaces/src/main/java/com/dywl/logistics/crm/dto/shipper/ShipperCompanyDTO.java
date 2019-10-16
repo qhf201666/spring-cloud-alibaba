@@ -1,8 +1,21 @@
 package com.dywl.logistics.crm.dto.shipper;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public class ShipperCompanyDTO {
+/**
+ * @author 乔海峰
+ *
+ */
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class ShipperCompanyDTO implements Serializable {
   private Long id;
 
   /**
