@@ -118,7 +118,10 @@
             <groupId>io.zipkin.brave</groupId>
             <artifactId>brave-instrumentation-mysql8</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>com.dywl</groupId>
+            <artifactId>common-dubbo-filter</artifactId>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
